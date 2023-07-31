@@ -148,6 +148,7 @@ document.querySelectorAll('.modal-photo-slider .swiper').forEach(function (elem)
 	new Swiper(elem, {
 		// direction: 'horizontal',
 		// loop: true,
+		autoHeight: true,
 		slidesPerView: 1,
 
 		navigation: {
@@ -379,64 +380,64 @@ document.querySelectorAll('.news-single-img-slider .swiper').forEach(function (e
 
 
 
-ymaps.ready(init);
-
-function init() {
-	if (document.getElementById('map-moscow') != null) {
-
-		var myMap = new ymaps.Map("map-moscow", {
-			center: [55.673321, 37.632583],
-			zoom: 16,
-			controls: []
-		});
-
-		var myGeoObjects = [];
-
-		myGeoObjects = new ymaps.Placemark([55.673321, 37.632583], {
-		}, {
-			iconLayout: 'default#image',
-			iconImageHref: 'images/svg/map-pin.svg',
-			iconImageSize: [30, 30],
-			iconImageOffset: [-15, -15]
-		});
-
-		var clusterer = new ymaps.Clusterer({
-			clusterDisableClickZoom: false,
-			clusterOpenBalloonOnClick: false,
-		});
-
-		clusterer.add(myGeoObjects);
-		myMap.geoObjects.add(clusterer);
-		myMap.behaviors.disable('scrollZoom');
-	}
-
-
-
-	if (document.getElementById('map-spb') != null) {
-
-		var myMap = new ymaps.Map("map-spb", {
-			center: [59.967712, 30.298998],
-			zoom: 16,
-			controls: []
-		});
-
-		var myGeoObjects = [];
-
-		myGeoObjects = new ymaps.Placemark([59.967712, 30.298998], {
-		}, {
-			iconLayout: 'default#image',
-			iconImageHref: 'images/svg/map-pin.svg',
-			iconImageSize: [30, 30],
-			iconImageOffset: [-15, -15]
-		});
-
-		var clusterer = new ymaps.Clusterer({
-			clusterDisableClickZoom: false,
-			clusterOpenBalloonOnClick: false,
-		});
-
-		clusterer.add(myGeoObjects);
-		myMap.geoObjects.add(clusterer);
-		myMap.behaviors.disable('scrollZoom');
-	}
-}
+// ymaps.ready(init);
+//
+// function init() {
+// 	if (document.getElementById('map-moscow') != null) {
+//
+// 		var myMap = new ymaps.Map("map-moscow", {
+// 			center: [55.673321, 37.632583],
+// 			zoom: 16,
+// 			controls: []
+// 		});
+//
+// 		var myGeoObjects = [];
+//
+// 		myGeoObjects = new ymaps.Placemark([55.673321, 37.632583], {
+// 		}, {
+// 			iconLayout: 'default#image',
+// 			iconImageHref: 'images/svg/map-pin.svg',
+// 			iconImageSize: [30, 30],
+// 			iconImageOffset: [-15, -15]
+// 		});
+//
+// 		var clusterer = new ymaps.Clusterer({
+// 			clusterDisableClickZoom: false,
+// 			clusterOpenBalloonOnClick: false,
+// 		});
+//
+// 		clusterer.add(myGeoObjects);
+// 		myMap.geoObjects.add(clusterer);
+// 		myMap.behaviors.disable('scrollZoom');
+// 	}
+//
+//
+//
+// 	if (document.getElementById('map-spb') != null) {
+//
+// 		var myMap = new ymaps.Map("map-spb", {
+// 			center: [59.967712, 30.298998],
+// 			zoom: 16,
+// 			controls: []
+// 		});
+//
+// 		var myGeoObjects = [];
+//
+// 		myGeoObjects = new ymaps.Placemark([59.967712, 30.298998], {
+// 		}, {
+// 			iconLayout: 'default#image',
+// 			iconImageHref: 'images/svg/map-pin.svg',
+// 			iconImageSize: [30, 30],
+// 			iconImageOffset: [-15, -15]
+// 		});
+//
+// 		var clusterer = new ymaps.Clusterer({
+// 			clusterDisableClickZoom: false,
+// 			clusterOpenBalloonOnClick: false,
+// 		});
+//
+// 		clusterer.add(myGeoObjects);
+// 		myMap.geoObjects.add(clusterer);
+// 		myMap.behaviors.disable('scrollZoom');
+// 	}
+// }

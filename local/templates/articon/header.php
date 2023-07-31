@@ -14,11 +14,11 @@ $page = $APPLICATION->GetCurPage();
 
     Asset::getInstance()->addString('<meta charset="utf-8">');
     Asset::getInstance()->addString('<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">');
-    Asset::getInstance()->addString('<link rel="icon" href="'.SITE_TEMPLATE_PATH.'/images/preview.jpg">');
+    Asset::getInstance()->addString('<link rel="icon" href="'.SITE_TEMPLATE_PATH.'/images/favicon.png">');
     Asset::getInstance()->addString('<meta property="og:image" content="'.SITE_TEMPLATE_PATH.'/images/preview.jpg">');
 
     //Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?lang=ru_RU');
-    Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=6ef172ee-88c5-4e71-b501-6d2b7099dca7&lang=ru_RU');
+    //Asset::getInstance()->addJs('https://api-maps.yandex.ru/2.1/?apikey=6ef172ee-88c5-4e71-b501-6d2b7099dca7&lang=ru_RU');
 
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/libs/jquery/jquery-3.6.0.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/libs/bootstrap/js/bootstrap.bundle.min.js');
