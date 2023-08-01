@@ -39,10 +39,54 @@ h1.section-title,
     max-width: 100%;
 }
 
+.section-rent {
+    padding-top: 15px;
+}
+
+.section-rent .s-rent-title-block {
+    padding-left: 0;
+}
+
+a.video {
+    display: block;
+}
+
+.video-iframe-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.video-iframe {
+    border: none;
+    height: 100%;
+}
+
+.course-top-info-type {
+    max-width: 100px;
+}
+
+.course-top--purple,
+.course-top--purple::before,
+.course-top--purple .course-top-info-photo-item-more,
+.course-top--purple .course-top-info-alt-params-block {
+    background-color: #D1C8FE;
+}
+
+.course-top--grey,
+.course-top--grey::before,
+.course-top--grey .course-top-info-photo-item-more,
+.course-top--grey .course-top-info-alt-params-block {
+    background-color: #D2D2D3;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {
         font-size: 24px;
+    }
+
+    .section-rent {
+        padding-top: 28px;
     }
 }
 

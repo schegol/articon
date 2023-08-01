@@ -97,21 +97,34 @@ if (!function_exists('getSeoBlock')) {
     }
 }
 
+if (!function_exists('clearPhone')) {
+    function clearPhone($phone) {
+        if (!strlen($phone))
+            return false;
+
+        $unwantedChars = array('(', ')', '-', ' ');
+        $clearPhone = str_replace($unwantedChars, '', $phone);
+
+        return $clearPhone;
+    }
+}
+
+
 //if (!function_exists('nonDynamicPageMarkup')) {
-//function nonDynamicPageMarkup() {
-//    global $APPLICATION;
-//    ob_start();
+//    function nonDynamicPageMarkup() {
+//        global $APPLICATION;
+//        ob_start();
 //
-//    if ($APPLICATION->GetProperty('dynamicPage') == 'Y') {
-//        echo '';
-//    } else {
-//        $markup = '';
-//        $markup .= '<div class="section-static">';
-//        echo $markup;
+//        if ($APPLICATION->GetProperty('dynamicPage') == 'Y') {
+//            echo '';
+//        } else {
+//            $markup = '';
+//            $markup .= '<div class="section-static">';
+//            echo $markup;
+//        }
+//
+//        $result = ob_get_contents();
+//        ob_end_clean();
+//        return $result;
 //    }
-//
-//    $result = ob_get_contents();
-//    ob_end_clean();
-//    return $result;
-//}
 //}

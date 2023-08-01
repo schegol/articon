@@ -95,8 +95,6 @@ const mpCalendarTopSlider = new Swiper('.mp-calendar-top-slider .swiper', {
 	}
 });
 
-
-
 $('.modal-btn').fancybox({
 	btnTpl: {
 		smallBtn:
@@ -104,6 +102,20 @@ $('.modal-btn').fancybox({
 			"</button>"
 	},
 	touch: false,
+	afterShow: function(instance, content) {
+		let trigger = $(instance.$trigger[0]),
+			swiper = null,
+			index, contentHtml;
+
+		if (trigger.data('index') !== undefined) {
+			index = trigger.data('index');
+			contentHtml = $(content.$content[0]);
+			swiper = contentHtml.find('.swiper')[0].swiper;
+
+			if (swiper !== null)
+				swiper.slideTo(index);
+		}
+	}
 });
 
 $('.modal-gallery-btn').fancybox({
@@ -236,8 +248,11 @@ document.querySelectorAll('.modal-photo-slider .swiper').forEach(function (elem)
 
 
 $(".courses-tab").on('click', function () {
+	if ($(this).hasClass('active'))
+		return;
+
 	$(this).parents(".courses-tabs").find(".courses-tab").removeClass("active").eq($(this).parent().index()).addClass("active");
-	$(this).parents(".courses-tabs-block").next().find(".courses-tab-content").hide().eq($(this).parent().index()).fadeIn()
+	// $(this).parents(".courses-tabs-block").next().find(".courses-tab-content").hide().eq($(this).parent().index()).fadeIn()
 }).eq(0).addClass("active");
 
 
