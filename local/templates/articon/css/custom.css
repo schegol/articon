@@ -33,6 +33,7 @@ h1.section-title,
 .fb-modal--form-success p {
     text-align: center;
     font-size: 16px;
+    font-family: "Montserrat", "Arial", sans-serif;
 }
 
 .s-learning-info-img img {
@@ -148,6 +149,11 @@ a.video {
     border-radius: 5px;
 }
 
+.news-single-content h4,
+.news-single-content-text-block > :first-child {
+    margin-top: 16px;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {
@@ -179,6 +185,13 @@ a.video {
 
     .fb-modal--form-success p {
         font-size: 21px;
+    }
+}
+
+@media (min-width: 992px) {
+    .news-single-content h4,
+    .news-single-content-text-block > :first-child {
+        margin-top: 40px;
     }
 }
 

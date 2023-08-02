@@ -253,7 +253,7 @@ $(".courses-tab").on('click', function () {
 
 	$(this).parents(".courses-tabs").find(".courses-tab").removeClass("active").eq($(this).parent().index()).addClass("active");
 	// $(this).parents(".courses-tabs-block").next().find(".courses-tab-content").hide().eq($(this).parent().index()).fadeIn()
-}).eq(0).addClass("active");
+});
 
 
 

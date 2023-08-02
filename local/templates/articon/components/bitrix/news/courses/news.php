@@ -11,6 +11,15 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
+use Bitrix\Main\Application;
+$context = Application::getInstance()->getContext();
+$request = $context->getRequest();
+
+if (strlen($request['section']) && (int)$request['section'] > 0) {
+    global $arrFilter;
+    $arrFilter['SECTION_ID'] = $request['section'];
+}
 ?>
 
 <?$APPLICATION->IncludeComponent(
@@ -60,7 +69,7 @@ $this->setFrameMode(true);
         "ACTIVE_DATE_FORMAT" => $arParams["LIST_ACTIVE_DATE_FORMAT"],
         "USE_PERMISSIONS" => $arParams["USE_PERMISSIONS"],
         "GROUP_PERMISSIONS" => $arParams["GROUP_PERMISSIONS"],
-        "FILTER_NAME" => $arParams["FILTER_NAME"],
+        "FILTER_NAME" => "arrFilter",
         "HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
         "CHECK_DATES" => $arParams["CHECK_DATES"],
         "BANNER_IMG" => $arParams["BANNER_IMG"],

@@ -12,20 +12,18 @@ if (CModule::IncludeModule('iblock')) {
     $request = $context->getRequest();
 
     global $arrFilterCourses;
-    $arrFilterCourses = array('ACTIVE' => 'Y');
+    $arrFilterCourses['ACTIVE'] = 'Y';
 
     $iBlock = $request['iblock'];
     $section = $request['section'];
 
     if ((int)$section > 0) {
-        $arrFilterCourses['PARENT_SECTION'] = $section;
+        $arrFilterCourses['SECTION_ID'] = $section;
     }
-
-    //TODO: проверить работу на настоящем хостинге
 
     $APPLICATION->IncludeComponent(
         "bitrix:news.list",
-        "",
+        "courses_ajax",
         array(
             "IBLOCK_TYPE" => "content",
             "IBLOCK_ID" => $iBlock,
@@ -41,9 +39,9 @@ if (CModule::IncludeModule('iblock')) {
                 "ACTIVE_TO",
             ),
             "PROPERTY_CODE" => array("*"),
-            "DETAIL_URL" => "/portfolio/#ELEMENT_CODE#/",
-            "SECTION_URL" => "/portfolio/",
-            "IBLOCK_URL" => "/portfolio/",
+            "DETAIL_URL" => "/courses/#ELEMENT_CODE#/",
+            "SECTION_URL" => "/courses/",
+            "IBLOCK_URL" => "/courses/",
             "DISPLAY_PANEL" => "",
             "SET_TITLE" => "1",
             "SET_LAST_MODIFIED" => "",
@@ -81,7 +79,6 @@ if (CModule::IncludeModule('iblock')) {
             "HIDE_LINK_WHEN_NO_DETAIL" => "",
             "CHECK_DATES" => "1",
             "BANNER_IMG" => "",
-//            "PARENT_SECTION" => "0",
             "INCLUDE_SUBSECTIONS" => "1",
             "SET_BROWSER_TITLE" => "N",
             "SET_META_KEYWORDS" => "N",

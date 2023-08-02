@@ -1,7 +1,18 @@
 <?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
-$this->setFrameMode(true);?>
+$this->setFrameMode(true);
 
-<?if (!empty($arResult['ITEMS'])):?>
+use Bitrix\Main\Application;
+?>
+
+<?if (!empty($arResult['ITEMS'])):
+    $context = Application::getInstance()->getContext();
+    $request = $context->getRequest();
+
+    $activeSection = false;
+    if (strlen($request['section']) && (int)$request['section'] > 0) {
+        $activeSection = $request['section'];
+    }
+?>
     <section class="section-courses">
         <div class="container">
             <div class="row">
@@ -15,13 +26,13 @@ $this->setFrameMode(true);?>
                         <div class="courses-tabs-block">
                             <div class="courses-tabs">
                                 <div class="courses-tab-wrapper">
-                                    <div class="courses-tab active" data-section="0">
+                                    <div class="courses-tab<?=$activeSection ? '' : ' active'?>" data-section="0">
                                         <?=GetMessage('NEWS_COURSES_NEWS_LIST_DEFAULT_ALL_SECTIONS')?>
                                     </div>
                                 </div>
                                 <?foreach ($arResult['FILTER_SECTIONS'] as $id => $name):?>
                                     <div class="courses-tab-wrapper">
-                                        <div class="courses-tab" data-section="<?=$id?>">
+                                        <div class="courses-tab<?=$activeSection && $activeSection == $id ? ' active' : ''?>" data-section="<?=$id?>">
                                             <?=$name?>
                                         </div>
                                     </div>
