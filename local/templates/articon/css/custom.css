@@ -32,6 +32,7 @@ h1.section-title,
 
 .fb-modal--form-success p {
     text-align: center;
+    font-size: 16px;
 }
 
 .s-learning-info-img img {
@@ -79,6 +80,74 @@ a.video {
     background-color: #D2D2D3;
 }
 
+.course-info-block--result > :nth-child(2) {
+    margin: 15px 0 0;
+}
+
+.course-info-block:not(.course-info-block--result) > :first-child {
+    margin: 20px 0 0;
+}
+
+.course-info-block h4 {
+    margin: 20px 0 15px;
+    font-weight: bold;
+}
+
+.course-info-block h5 {
+    margin: 20px 0 0;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: var(--monfont);
+}
+
+.course-info-block p {
+    margin-top: 10px;
+    font-family: var(--monfont);
+}
+
+.course-info-block ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    font-family: var(--monfont);
+}
+
+.course-info-block ol {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: counter;
+}
+
+.course-info-block ol:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.course-info-block ol li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 30px);
+    counter-increment: counter;
+}
+
+.course-info-block ol li:not(:first-child) {
+    margin-top: 15px;
+}
+
+.course-info-block ol li::before {
+    content: counter(counter);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 19px;
+    font-size: 16px;
+    font-family: var(--monfont);
+    background-color: #DBFE02;
+    border-radius: 5px;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {
@@ -87,6 +156,29 @@ a.video {
 
     .section-rent {
         padding-top: 28px;
+    }
+
+    .course-info-block h4 {
+        margin: 30px 0 30px;
+    }
+
+    .course-info-block h5 {
+        margin: 30px 0 0;
+        font-size: 14px;
+    }
+
+    .course-info-block ol li {
+        width: calc(100% - 55px);
+    }
+
+    .course-info-block ol li::before {
+        min-width: 55px;
+        height: 55px;
+        font-size: 14px;
+    }
+
+    .fb-modal--form-success p {
+        font-size: 21px;
     }
 }
 
@@ -101,5 +193,13 @@ a.video {
     h1.section-title,
     .section-title-block h1 {
         font-size: 32px;
+    }
+
+    .course-info-block h5 {
+        font-size: 16px;
+    }
+
+    .fb-modal--form-success p {
+        font-size: 24px;
     }
 }

@@ -145,7 +145,7 @@ $this->setFrameMode(true);
                                                                                             $smallPicArray = CFile::GetFileArray($img);
                                                                                             $smallPicData = CFile::ResizeImageGet($smallPicArray, array('width' => 1320, 'height' => 1320), BX_RESIZE_IMAGE_PROPORTIONAL, true);
                                                                                             $smallPic = $smallPicData['src'];
-                                                                                            ?>
+                                                                                        ?>
                                                                                             <div class="modal-photo-slide swiper-slide">
                                                                                                 <div class="modal-photo-slide-item">
                                                                                                     <div class="modal-photo-slide-img">
@@ -170,7 +170,7 @@ $this->setFrameMode(true);
                                                                                             $smallPicArray = CFile::GetFileArray($img);
                                                                                             $smallPicData = CFile::ResizeImageGet($smallPicArray, array('width' => 254, 'height' => 254), BX_RESIZE_IMAGE_PROPORTIONAL, true);
                                                                                             $smallPic = $smallPicData['src'];
-                                                                                            ?>
+                                                                                        ?>
                                                                                             <div class="modal-photo-thumb-slide swiper-slide">
                                                                                                 <div class="modal-photo-thumb-slide-item">
                                                                                                     <div class="modal-photo-thumb-slide-item-img">
@@ -222,171 +222,19 @@ $this->setFrameMode(true);
 
                                         <?if (strlen($arResult['PROPERTIES']['RESULT']['VALUE']['TEXT'])):?>
                                             <div class="course-info-block course-info-block--result">
-                                                <h3 class="course-info-block-title">Какой будет результат?</h3>
-                                                <?//=$arResult['PROPERTIES']['RESULT']['~VALUE']['TEXT']?>
-                                                <ul class="course-info-result-list">
-                                                    <li>Знания для работы в программе Exocad</li>
-                                                    <li>Понимание интерфейса</li>
-                                                    <li>Умение моделировать базовые ортопедические конструкции (одиночные коронки, мостовидные
-                                                        протезы)</li>
-                                                    <li>Навык создания проектов цифрового дизайна зубов</li>
-                                                </ul>
+                                                <h3 class="course-info-block-title">
+                                                    <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_RESULT_HEADING')?>
+                                                </h3>
+                                                <?=$arResult['PROPERTIES']['RESULT']['~VALUE']['TEXT']?>
                                             </div>
                                         <?endif?>
 
                                         <?if (strlen($arResult['DETAIL_TEXT'])):?>
                                             <div class="course-info-block">
-                                                <h3 class="course-info-block-title">Программа курса</h3>
-                                                <div class="course-programm-block">
-                                                    <div class="h4 course-programm-block-title">
-                                                        Теоретический день
-                                                    </div>
-                                                    <div class="count-list">
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                1
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Правила заполнения цифрового заказ-наряда
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                2
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Типы реставраций, доступные для моделирования в Exocad
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="course-programm-items-block">
-                                                        <div class="course-programm-items">
-                                                            <div class="course-programm-item">
-                                                                <div class="course-programm-item__title">
-                                                                    Проект создания одиночной коронки в режиме Помощника (wizard mode)
-                                                                </div>
-                                                                <div class="course-programm-item__descr">
-                                                                    Построение модели для 3D - печати с гравировкой границы препарирования
-                                                                </div>
-                                                            </div>
-                                                            <div class="course-programm-item">
-                                                                <div class="course-programm-item__title">
-                                                                    Проект создания мостовидного протеза на винтовой фиксации (скан-маркеры) с применением
-                                                                    разных типов редуцирования в режиме Expert
-                                                                </div>
-                                                                <div class="course-programm-item__descr">
-                                                                    Особенности построения моделей с DIM - аналогами (для CAD/CAM моделей)
-                                                                </div>
-                                                            </div>
-                                                            <div class="course-programm-item">
-                                                                <div class="course-programm-item__title">
-                                                                    Проект цифрового дизайна зубов (digital waxup)
-                                                                </div>
-                                                                <div class="course-programm-item__descr">
-                                                                    Построение модели для 3D - печати с ваксапом
-                                                                </div>
-                                                            </div>
-                                                            <div class="course-programm-item">
-                                                                <div class="course-programm-item__title">
-                                                                    Дополнительно
-                                                                </div>
-                                                                <div class="course-programm-item__descr">
-                                                                    <ul>
-                                                                        <li>Инструменты для коммуникации врач/техник</li>
-                                                                        <li>Виртуальный артикулятор</li>
-                                                                        <li>Оптимизация параметров для изготовления конструкций методами фрезерования/ 3D -
-                                                                            печати</li>
-                                                                        <li>Часто встречаемые ошибки и пути их решения</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="course-programm-block">
-                                                    <div class="h4 course-programm-block-title">
-                                                        Практический день
-                                                    </div>
-                                                    <div class="count-list">
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                1
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Заполнение цифрового заказ-наряда с последующим изготовлением соответствующей
-                                                                    конструкции.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                2
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Моделирование коронки в полную анатомию в двух режимах программы (с использованием
-                                                                    режима "помощник" и "эксперт")
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                3
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Создание каркаса под полное или частичное нанесение
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                4
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Изготовление мостовидного протеза на имплантах(полная анатомия и последующая редукция
-                                                                    конструкции)
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                5
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Изготовление цифрового мокапа с последующим созданием модели под "ключ"
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                6
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Создание модели для перевода из цифры в аналог с помощью 3D-печати.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="count-list-item">
-                                                            <div class="count-list-item__count">
-                                                                7
-                                                            </div>
-                                                            <div class="count-list-item__text-block">
-                                                                <div class="count-list-item__text">
-                                                                    Изготовление внутрикорневой культевой вкладки.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <h3 class="course-info-block-title course-info-block-title--detail">
+                                                    <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_COURSE_PROGRAM_HEADING')?>
+                                                </h3>
+                                                <?=$arResult['~DETAIL_TEXT']?>
                                             </div>
                                         <?endif?>
                                     </div>
@@ -399,225 +247,133 @@ $this->setFrameMode(true);
         </div>
     </section>
 
-    <section class="section-feedback">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-10 col-xl-8 offset-0 offset-lg-1 offset-xl-2">
-                    <h2>Оставить заявку</h2>
-                    <div class="feedback-form-block">
-                        <form action="" class="form feedback-form">
-                            <div class="feedback-form-row">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6">
-                                        <div class="field field--input">
-                                            <input type="text" name="name" placeholder="Ваше имя" autocomplete="off" required>
-                                        </div>
-                                        <div class="field field--input">
-                                            <input type="text" name="phone" placeholder="Ваш телефон" autocomplete="off">
-                                        </div>
-                                        <div class="field field--input field--input-email">
-                                            <input type="email" name="email" placeholder="Ваш e-mail" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="field field--textarea">
-                                            <div class="field-title">
-                                                Текст сообщения
-                                            </div>
-                                            <textarea name="message" placeholder=""></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="field field--checkbox">
-                                <label class="custom-checkbox-label">
-                                    <input type="checkbox" name="checkbox" value="1" class="checkbox" checked>
-                                    <span class="custom-checkbox">
-											<img class="image" src="images/svg/checkbox-check.svg" alt="">
-										</span>
-                                    <span class="custom-checkbox-text-label">Я соглашаюсь на обработку персональных данных.</span>
-                                </label>
-                            </div>
+    <?$APPLICATION->IncludeComponent(
+        "pk:form.simple",
+        "course_form",
+        Array(
+            "IBLOCK_ID" => "16",
+            "AJAX" => "Y",
+            "LOAD_JS_CSS" => "Y",
+            "SOGLASIE" => "Y",
+            "SHOW_ERROR" => "Y",
+            "COURSE_ID" => $arResult["ID"],
+        )
+    );?>
 
-                            <div class="btn-wrapper">
-                                <button type="submit" class="green-btn">Отправить</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?if (is_array($arResult['PROPERTIES']['SPEAKERS']['VALUE']) && !empty($arResult['PROPERTIES']['SPEAKERS']['VALUE'])):?>
+        <?
+        global $arrFilterSpeakers;
+        $arrFilterSpeakers['ID'] = $arResult['PROPERTIES']['SPEAKERS']['VALUE'];
 
-    <section class="section-course-speakers">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="s-course-speakers-title-block">
-                        <div class="section-title-block">
-                            <div class="section-title-label-wrapper">
-                                <div class="section-title-label">
-                                    Курсы
-                                </div>
-                                <div class="section-title-label-bridge"></div>
-                            </div>
-                            <h2 class="section-title">
-                                Спикеры
+        $APPLICATION->IncludeComponent(
+            "bitrix:news.list",
+            "speakers",
+            Array(
+                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                "ADD_SECTIONS_CHAIN" => "N",
+                "AJAX_MODE" => "N",
+                "AJAX_OPTION_ADDITIONAL" => "",
+                "AJAX_OPTION_HISTORY" => "N",
+                "AJAX_OPTION_JUMP" => "N",
+                "AJAX_OPTION_STYLE" => "Y",
+                "CACHE_FILTER" => "N",
+                "CACHE_GROUPS" => "Y",
+                "CACHE_TIME" => "36000000",
+                "CACHE_TYPE" => "A",
+                "CHECK_DATES" => "Y",
+                "DETAIL_URL" => "",
+                "DISPLAY_BOTTOM_PAGER" => "Y",
+                "DISPLAY_DATE" => "Y",
+                "DISPLAY_NAME" => "Y",
+                "DISPLAY_PICTURE" => "Y",
+                "DISPLAY_PREVIEW_TEXT" => "Y",
+                "DISPLAY_TOP_PAGER" => "N",
+                "FIELD_CODE" => array("NAME", ""),
+                "FILTER_NAME" => "arrFilterSpeakers",
+                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                "IBLOCK_ID" => $arResult["PROPERTIES"]["SPEAKERS"]["LINK_IBLOCK_ID"],
+                "IBLOCK_TYPE" => "contacts",
+                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                "INCLUDE_SUBSECTIONS" => "Y",
+                "MEDIA_PROPERTY" => "",
+                "MESSAGE_404" => "",
+                "NEWS_COUNT" => "999",
+                "PAGER_BASE_LINK_ENABLE" => "N",
+                "PAGER_DESC_NUMBERING" => "N",
+                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                "PAGER_SHOW_ALL" => "N",
+                "PAGER_SHOW_ALWAYS" => "N",
+                "PAGER_TEMPLATE" => ".default",
+                "PAGER_TITLE" => "Новости",
+                "PARENT_SECTION" => "",
+                "PARENT_SECTION_CODE" => "",
+                "PREVIEW_TRUNCATE_LEN" => "",
+                "PROPERTY_CODE" => array("*", ""),
+                "SEARCH_PAGE" => "/search/",
+                "SET_BROWSER_TITLE" => "N",
+                "SET_LAST_MODIFIED" => "N",
+                "SET_META_DESCRIPTION" => "N",
+                "SET_META_KEYWORDS" => "N",
+                "SET_STATUS_404" => "N",
+                "SET_TITLE" => "N",
+                "SHOW_404" => "N",
+                "SLIDER_PROPERTY" => "",
+                "SORT_BY1" => "SORT",
+                "SORT_BY2" => "ACTIVE_FROM",
+                "SORT_ORDER1" => "ASC",
+                "SORT_ORDER2" => "DESC",
+                "STRICT_SECTION_CHECK" => "N",
+                "TEMPLATE_THEME" => "blue",
+                "USE_RATING" => "N",
+                "USE_SHARE" => "N",
+                "COURSES_IBLOCK_ID" => $arParams["IBLOCK_ID"],
+            )
+        );
+        ?>
+    <?endif?>
+
+    <?if (is_array($arResult['REVIEWS']) && !empty($arResult['REVIEWS'])):?>
+        <section class="section-course-reviews">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="about-photo-top-block">
+                            <h2>
+                                <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_REVIEWS_HEADING')?>
                             </h2>
                         </div>
-                    </div>
 
-                    <div class="lecturer-items-block">
-                        <div class="lecturer-items">
-                            <div class="row">
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <a href="#modal-lecturer-1" data-fancybox="lecturer-gallery" class="lecturer-item modal-gallery-btn">
-                                        <div class="lecturer-item-img">
-                                            <img class="image" src="images/lecturers/lecturer-item-img-1.png" alt="">
-                                        </div>
-                                        <div class="lecturer-item-info">
-                                            <div class="lecturer-item-name-wrapper">
-                                                <div class="h4 lecturer-item-name">
-                                                    ВСЕВОЛОД СОКОЛОВ
+                        <div class="course-reviews-block">
+                            <div class="course-reviews">
+                                <?foreach ($arResult['REVIEWS'] as $arReview):?>
+                                    <div class="course-review-wrapper">
+                                        <div class="course-review course-review--<?=$arReview['COLOR']?>">
+                                            <div class="course-review-inner">
+                                                <div class="course-review-date">
+                                                    <?=FormatDate('d / m / Y', MakeTimeStamp($arReview['DATE']))?>
                                                 </div>
-                                            </div>
-                                            <div class="lecturer-item-state-wrapper">
-                                                <div class="lecturer-item-state-bridge"></div>
-                                                <div class="lecturer-item-state">
-                                                    Ведущий цифровой дизайнер Articon Санкт- Петербург.
+                                                <?if (strlen($arReview['IMG'])):?>
+                                                    <div class="course-review-avatar">
+                                                        <img class="image" src="<?=$arReview['IMG']?>" alt="<?=$arReview['NAME']?>">
+                                                    </div>
+                                                <?endif?>
+                                                <div class="course-review-title-block">
+                                                    <div class="course-review-title">
+                                                        <?=$arReview['NAME']?>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <a href="#modal-lecturer-2" data-fancybox="lecturer-gallery" class="lecturer-item modal-gallery-btn">
-                                        <div class="lecturer-item-img">
-                                            <img class="image" src="images/lecturers/lecturer-item-img-2.png" alt="">
-                                        </div>
-                                        <div class="lecturer-item-info">
-                                            <div class="lecturer-item-name-wrapper">
-                                                <div class="h4 lecturer-item-name">
-                                                    МИХАИЛ МИХАЙЛОВ
-                                                </div>
-                                            </div>
-                                            <div class="lecturer-item-state-wrapper">
-                                                <div class="lecturer-item-state-bridge"></div>
-                                                <div class="lecturer-item-state">
-                                                    Ведущий специалист отдела хирургического планирования
+                                                <div class="course-review-descr">
+                                                    <?=$arReview['TEXT']?>
                                                 </div>
                                             </div>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <a href="#modal-lecturer-3" data-fancybox="lecturer-gallery" class="lecturer-item modal-gallery-btn">
-                                        <div class="lecturer-item-img">
-                                            <img class="image" src="images/lecturers/lecturer-item-img-3.png" alt="">
-                                        </div>
-                                        <div class="lecturer-item-info">
-                                            <div class="lecturer-item-name-wrapper">
-                                                <div class="h4 lecturer-item-name">
-                                                    КРИСТИАН КАРА
-                                                </div>
-                                            </div>
-                                            <div class="lecturer-item-state-wrapper">
-                                                <div class="lecturer-item-state-bridge"></div>
-                                                <div class="lecturer-item-state">
-                                                    Сотрудник отдела <br>Продвинутого моделирования
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                <?endforeach?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section-course-reviews">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="about-photo-top-block">
-                        <h2>отзывы студентов</h2>
-                    </div>
-
-                    <div class="course-reviews-block">
-                        <div class="course-reviews">
-                            <div class="course-review-wrapper">
-                                <div class="course-review course-review--green">
-                                    <div class="course-review-inner">
-                                        <div class="course-review-date">
-                                            20 / 03 / 2023
-                                        </div>
-                                        <div class="course-review-avatar">
-                                            <img class="image" src="images/courses/course-review-avatar-1.png" alt="">
-                                        </div>
-                                        <div class="course-review-title-block">
-                                            <div class="course-review-title">
-                                                Сергей петрович
-                                            </div>
-                                        </div>
-                                        <div class="course-review-descr">
-                                            Цифровизация протоколов работы и персонализация остаются в числе основных трендов рынка
-                                            стоматологических услуг в 2023 году. О цифровой стоматологии мы всегда готовы рассказать
-                                            вам на наших мероприятиях сами.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="course-review-wrapper">
-                                <div class="course-review course-review--purple">
-                                    <div class="course-review-inner">
-                                        <div class="course-review-date">
-                                            20 / 03 / 2023
-                                        </div>
-                                        <div class="course-review-avatar">
-                                            <img class="image" src="images/courses/course-review-avatar-1.png" alt="">
-                                        </div>
-                                        <div class="course-review-title-block">
-                                            <div class="course-review-title">
-                                                Ирина Сергеевна
-                                            </div>
-                                        </div>
-                                        <div class="course-review-descr">
-                                            Мы провели совместного с Центром цифровой стоматологии Артикон исследование: на
-                                            протяжении месяца измеряли расходы слепочной массы и выявили средний вес слепка (ВЧ+НЧ)
-                                            - 103 г.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="course-review-wrapper">
-                                <div class="course-review course-review--purple">
-                                    <div class="course-review-inner">
-                                        <div class="course-review-date">
-                                            20 / 03 / 2023
-                                        </div>
-                                        <div class="course-review-avatar">
-                                            <img class="image" src="images/courses/course-review-avatar-1.png" alt="">
-                                        </div>
-                                        <div class="course-review-title-block">
-                                            <div class="course-review-title">
-                                                ALEX 578
-                                            </div>
-                                        </div>
-                                        <div class="course-review-descr">
-                                            Мы провели совместного с Центром цифровой стоматологии Артикон исследование: на
-                                            протяжении месяца измеряли расходы слепочной массы и выявили средний вес слепка (ВЧ+НЧ)
-                                            - 103 г.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    <?endif?>
 <?endif?>

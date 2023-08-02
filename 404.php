@@ -6,6 +6,7 @@ CHTTP::SetStatus('404 Not Found');
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 
 $APPLICATION->SetTitle('Страница не найдена');
+$APPLICATION->AddChainItem('404', '');
 ?>
 
 <section class="section-404">
@@ -25,4 +26,4 @@ $APPLICATION->SetTitle('Страница не найдена');
     </div>
 </section>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
