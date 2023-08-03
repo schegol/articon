@@ -18,7 +18,7 @@ $APPLICATION->SetTitle("Курсы");
         "CACHE_GROUPS" => "Y",
         "CACHE_TIME" => "36000000",
         "CACHE_TYPE" => "A",
-        "CHECK_DATES" => "Y",
+        "CHECK_DATES" => "N",
         "DETAIL_ACTIVE_DATE_FORMAT" => "j F",
         "DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
         "DETAIL_DISPLAY_TOP_PAGER" => "N",
@@ -58,7 +58,7 @@ $APPLICATION->SetTitle("Курсы");
         "SEF_URL_TEMPLATES" => Array(
             "detail" => "#ELEMENT_CODE#/",
             "news" => "",
-            "section" => "#SECTION_CODE#/"
+            "section" => ""
         ),
         "SET_LAST_MODIFIED" => "N",
         "SET_STATUS_404" => "N",

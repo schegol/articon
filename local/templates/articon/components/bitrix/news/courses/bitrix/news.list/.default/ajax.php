@@ -12,7 +12,8 @@ if (CModule::IncludeModule('iblock')) {
     $request = $context->getRequest();
 
     global $arrFilterCourses;
-    $arrFilterCourses['ACTIVE'] = 'Y';
+    $arrFilterCourses['ACTIVE_DATE'] = false;
+    $arrFilterCourses['>=DATE_ACTIVE_FROM'] = ConvertTimeStamp(false, 'SHORT');
 
     $iBlock = $request['iblock'];
     $section = $request['section'];

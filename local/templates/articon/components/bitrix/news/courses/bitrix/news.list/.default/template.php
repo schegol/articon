@@ -71,7 +71,7 @@ use Bitrix\Main\Application;
                                                                 <div class="course-item-params">
                                                                     <div class="course-item-param course-item-param--date">
                                                                         <?=FormatDate($arParams['ACTIVE_DATE_FORMAT'], MakeTimeStamp($arItem['ACTIVE_FROM']))?>
-                                                                        <?if (strlen($arItem['ACTIVE_TO'])):?>
+                                                                        <?if (strlen($arItem['ACTIVE_TO']) && ($arItem['ACTIVE_FROM'] != $arItem['ACTIVE_TO'])):?>
                                                                              —
                                                                             <?=FormatDate($arParams['ACTIVE_DATE_FORMAT'], MakeTimeStamp($arItem['ACTIVE_TO']))?>
                                                                         <?endif?>

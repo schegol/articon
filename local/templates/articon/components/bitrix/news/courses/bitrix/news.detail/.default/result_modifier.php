@@ -43,7 +43,11 @@ if (is_array($arResult['PROPERTIES']['REVIEWS']['VALUE']) && !empty($arResult['P
 
     $obj = CIBlockElement::GetList(
         array('SORT' => 'ASC', 'ACTIVE_FROM' => 'DESC'),
-        array('IBLOCK_ID' => $reviewsIBlockId, 'ID' => $ids, 'ACTIVE' => 'Y'),
+        array(
+            'IBLOCK_ID' => $reviewsIBlockId,
+            'ID' => $ids,
+            'ACTIVE' => 'Y',
+        ),
         false,
         false,
         array('ID', 'NAME', 'PREVIEW_TEXT', 'PREVIEW_PICTURE', 'DATE_ACTIVE_FROM', 'PROPERTY_BG_COLOR')

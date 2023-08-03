@@ -29,7 +29,10 @@ $coursesIBlock = $arParams['IBLOCK_ID'];
 
 $obj = CIBlockSection::GetList(
     array('SORT' => 'ASC'),
-    array('IBLOCK_ID' => $coursesIBlock, 'ACTIVE' => 'Y'),
+    array(
+        'IBLOCK_ID' => $coursesIBlock,
+        'ACTIVE' => 'Y',
+    ),
     false,
     array('ID', 'NAME'),
     false

@@ -11,18 +11,6 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-use Bitrix\Main\Application;
-$context = Application::getInstance()->getContext();
-$request = $context->getRequest();
-
-global $arrFilter;
-$arrFilter['ACTIVE_DATE'] = false;
-$arrFilter['>=DATE_ACTIVE_FROM'] = ConvertTimeStamp(false, 'SHORT');
-
-if (strlen($request['section']) && (int)$request['section'] > 0) {
-    $arrFilter['SECTION_ID'] = $request['section'];
-}
 ?>
 
 <?$APPLICATION->IncludeComponent(

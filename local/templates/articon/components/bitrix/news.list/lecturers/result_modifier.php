@@ -4,7 +4,6 @@ $coursesIBlockId = $arParams['COURSES_IBLOCK_ID'];
 foreach ($arResult['ITEMS'] as &$arItem) {
     $coursesData = [];
 
-    //TODO: доделать сбор связанных курсов
     //..................
 
     $arItem['COURSES'] = $coursesData;
