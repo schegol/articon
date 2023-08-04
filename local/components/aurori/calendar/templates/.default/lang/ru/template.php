@@ -1,0 +1,3 @@
+<?
+$MESS['AURORI_CALENDAR_DEFAULT_HEADING'] = 'Календарь событий';
+$MESS['AURORI_CALENDAR_DEFAULT_YEAR'] = ' год';
