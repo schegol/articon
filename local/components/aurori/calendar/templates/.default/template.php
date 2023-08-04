@@ -11,7 +11,7 @@ $this->setFrameMode(true);
                         <div class="mp-calendar-top-left">
                             <div class="mp-calendar-top-title-block">
                                 <div class="mp-calendar-top-year-wrapper">
-                                    <div class="mp-calendar-top-year">
+                                    <div class="mp-calendar-top-year" id="calendarYear">
                                         <?=date('Y').GetMessage('AURORI_CALENDAR_DEFAULT_YEAR')?>
                                     </div>
                                     <div class="mp-calendar-top-year-bridge">
@@ -98,45 +98,50 @@ $this->setFrameMode(true);
                     </div>
                     <div class="mp-calendar-block">
                         <div class="mp-calendar-list">
-                            <div class="mp-calendar">
+                            <div class="mp-calendar" data-year="2023">
                                 <div class="mp-calendar-heading">
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col">
-                                            Пн
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_MON')?>
                                         </div>
                                     </div>
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col">
-                                            Вт
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_TUE')?>
                                         </div>
                                     </div>
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col">
-                                            Ср
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_WEN')?>
                                         </div>
                                     </div>
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col">
-                                            Чт
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_THU')?>
                                         </div>
                                     </div>
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col">
-                                            Пт
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_FRI')?>
                                         </div>
                                     </div>
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col mp-calendar-h-col--weekend">
-                                            Сб
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_SAT')?>
                                         </div>
                                     </div>
                                     <div class="mp-calendar-h-col-wrapper">
                                         <div class="mp-calendar-h-col mp-calendar-h-col--weekend">
-                                            Вс
+                                            <?=GetMessage('AURORI_CALENDAR_DEFAULT_WEEKDAY_SUN')?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mp-calendar-items">
+                                    <?/*
+                                    <div class="mp-calendar-item-wrapper"></div>
+                                    <div class="mp-calendar-item-wrapper"></div>
+                                    */?>
+
                                     <div class="mp-calendar-item-wrapper">
                                         <div class="mp-calendar-item">
                                             <div class="mp-calendar-item__day">1</div>
@@ -158,7 +163,7 @@ $this->setFrameMode(true);
                                                 несъёмных аппаратов
                                             </div>
                                             <div class="mp-calendar-item__arrow">
-                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="">
+                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="<?=GetMessage('AURORI_CALENDAR_DEFAULT_ARROW_ICON_ALT')?>">
                                             </div>
                                         </div>
                                     </div>
@@ -203,7 +208,7 @@ $this->setFrameMode(true);
                                                 несъёмных аппаратов
                                             </div>
                                             <div class="mp-calendar-item__arrow">
-                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="">
+                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="<?=GetMessage('AURORI_CALENDAR_DEFAULT_ARROW_ICON_ALT')?>">
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +238,7 @@ $this->setFrameMode(true);
                                                 несъёмных аппаратов
                                             </div>
                                             <div class="mp-calendar-item__arrow">
-                                                <img class="image" src="images/svg/mp-calendar-item-arrow.svg" alt="">
+                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="<?=GetMessage('AURORI_CALENDAR_DEFAULT_ARROW_ICON_ALT')?>">
                                             </div>
                                         </div>
                                     </div>
@@ -248,7 +253,7 @@ $this->setFrameMode(true);
                                                 несъёмных аппаратов
                                             </div>
                                             <div class="mp-calendar-item__arrow">
-                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="">
+                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="<?=GetMessage('AURORI_CALENDAR_DEFAULT_ARROW_ICON_ALT')?>">
                                             </div>
                                         </div>
                                     </div>
@@ -303,7 +308,7 @@ $this->setFrameMode(true);
                                                 несъёмных аппаратов
                                             </div>
                                             <div class="mp-calendar-item__arrow">
-                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="">
+                                                <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-calendar-item-arrow.svg" alt="<?=GetMessage('AURORI_CALENDAR_DEFAULT_ARROW_ICON_ALT')?>">
                                             </div>
                                         </div>
                                     </div>
