@@ -27,9 +27,60 @@ class CAuroriCalendar extends CBitrixComponent {
         $arResult['MONTHS'] = [];
 
         $today = time();
+        $todayFormatted = date('d.m.Y', $today);
         $initialMonth = intval(date('n', $today));
-        $initialMonth = intval(date('m', $today));
         $initialYear = intval(date('Y', $today));
+
+        /***/
+        $bgColorXMLs = [];
+        $bgColorEnumObj = CIBlockPropertyEnum::GetList(
+            array(
+                'SORT' => 'ASC',
+            ),
+            array(
+                'IBLOCK_ID' => $paramsIBlock,
+                'CODE' => 'BG_COLOR',
+            )
+        );
+        while ($bgColorFields = $bgColorEnumObj->GetNext()) {
+            $bgColorXMLs[$bgColorFields['ID']] = $bgColorFields['XML_ID'];
+        }
+        /***/
+
+        /***/
+        $eventsSelection = [];
+        $objEventsSelection = CIBlockElement::GetList(
+            array(
+                'ACTIVE_FROM' => 'ASC',
+                'SORT' => 'ASC',
+                'NAME' => 'ASC',
+            ),
+            array(
+                'IBLOCK_ID' => $paramsIBlock,
+                array(
+                    'LOGIC' => 'AND',
+                    '>=DATE_ACTIVE_FROM' => $todayFormatted,
+                    '<=DATE_ACTIVE_FROM' => $this->lastSelectionDate($todayFormatted, $paramsMonths),
+                ),
+            ),
+            false,
+            false,
+            array(
+                'NAME',
+                'DATE_ACTIVE_FROM',
+                'DATE_ACTIVE_TO',
+                'DETAIL_PAGE_URL',
+                'PROPERTY_BG_COLOR',
+                'PROPERTY_LECTURER',
+            )
+        );
+        while ($arrEventsSelection = $objEventsSelection->GetNext()) {
+            $arrEventsSelection['PROPERTY_BG_COLOR_XML_ID'] = $bgColorXMLs[$arrEventsSelection['PROPERTY_BG_COLOR_ENUM_ID']];
+            $eventsSelection[$arrEventsSelection['DATE_ACTIVE_FROM']][] = $arrEventsSelection;
+        }
+
+        echo '<pre>',print_r($eventsSelection),'</pre>';
+        /***/
 
         $processedEvent = null;
 
@@ -76,8 +127,6 @@ class CAuroriCalendar extends CBitrixComponent {
 
             /**/
 
-            echo '<pre>',print_r($processedMonth),'</pre>';
-
             if ($initialMonth == 12) {
                 $initialMonth = 1;
                 $initialYear++;
@@ -88,12 +137,28 @@ class CAuroriCalendar extends CBitrixComponent {
             $arResult['MONTHS'][] = $processedMonth;
         }
 
+        echo '<pre>',print_r($arResult['MONTHS']),'</pre>';
+
         $this->arResult = $arResult;
         $this->includeComponentTemplate();
     }
 
     public function daysInMonth($month, $year) {
         return $month == 2 ? ($year % 4 ? 28 : ($year % 100 ? 29 : ($year % 400 ? 28 : 29))) : (($month - 1) % 7 % 2 ? 30 : 31);
+    }
+
+    public function lastSelectionDate($today, $monthsLen) {
+        if (($monthsLen - 1) > 1) {
+            $monthsText = 'months';
+        } else {
+            $monthsText = 'month';
+        }
+
+        $todayInst = new DateTime($today);
+        $lastSelectionInst = $todayInst->modify('last day of +'.($monthsLen - 1).' '.$monthsText);
+        $lastSelectionDate = $lastSelectionInst->format('d.m.Y');
+
+        return $lastSelectionDate;
     }
 }
 ?>
