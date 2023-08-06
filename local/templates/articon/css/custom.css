@@ -171,6 +171,10 @@ a.video {
     text-decoration: none;
 }
 
+.mp-calendar-item__day span {
+    color: #EB5757;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {

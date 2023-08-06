@@ -15,12 +15,18 @@ class CAuroriCalendar extends CBitrixComponent {
             return;
         }
 
+        if (!$this->arParams['LECTURERS_IBLOCK_ID']) {
+            ShowError(GetMessage('CLASS_AURORI_CALENDAR_NO_LECTURERS_IBLOCK_SPECIFIED'));
+            return;
+        }
+
         if (!is_int((int)$this->arParams['MONTHS']) || (int)$this->arParams['MONTHS'] <= 0) {
             ShowError(GetMessage('CLASS_AURORI_CALENDAR_MONTHS_WRONG_TYPE'));
             return;
         }
 
         $paramsIBlock = $this->arParams['IBLOCK_ID'];
+        $paramsLecturersIBlock = $this->arParams['LECTURERS_IBLOCK_ID'];
         $paramsMonths = $this->arParams['MONTHS'];
 
         $arResult = [];
@@ -44,6 +50,28 @@ class CAuroriCalendar extends CBitrixComponent {
         );
         while ($bgColorFields = $bgColorEnumObj->GetNext()) {
             $bgColorXMLs[$bgColorFields['ID']] = $bgColorFields['XML_ID'];
+        }
+        /***/
+
+        /***/
+        $lecturersData = [];
+        $objLecturers = CIBlockElement::GetList(
+            array(
+                'ID' => 'ASC',
+            ),
+            array(
+                'IBLOCK_ID' => $paramsLecturersIBlock,
+                'ACTIVE' => 'Y',
+            ),
+            false,
+            false,
+            array(
+                'NAME',
+                'PROPERTY_IMG',
+            )
+        );
+        while ($arrLecturer = $objLecturers->GetNext()) {
+            $lecturersData[$arrLecturer['ID']] = $arrLecturer;
         }
         /***/
 
@@ -76,10 +104,34 @@ class CAuroriCalendar extends CBitrixComponent {
         );
         while ($arrEventsSelection = $objEventsSelection->GetNext()) {
             $arrEventsSelection['PROPERTY_BG_COLOR_XML_ID'] = $bgColorXMLs[$arrEventsSelection['PROPERTY_BG_COLOR_ENUM_ID']];
+            $arrEventsSelection['LECTURER_DATA'] = $lecturersData[$arrEventsSelection['PROPERTY_LECTURER_VALUE']];
+
+            $dateStart = new DateTime($arrEventsSelection['DATE_ACTIVE_FROM']);
+            $dateEnd = new DateTime($arrEventsSelection['DATE_ACTIVE_TO']);
+            $daysLen  = $dateEnd->diff($dateStart)->format('%a');
+            $arrEventsSelection['DAYS_LENGTH'] = $daysLen + 1;
+
+            if ($arrEventsSelection['DAYS_LENGTH'] > 1) {
+                $dateStartShort = FormatDate('j', MakeTimeStamp($arrEventsSelection['DATE_ACTIVE_FROM']));
+                $dateStartIsWeekend = in_array(date('w', strtotime($arrEventsSelection['DATE_ACTIVE_FROM'])), [0, 6]);
+                $dateEndShort = FormatDate('j', MakeTimeStamp($arrEventsSelection['DATE_ACTIVE_TO']));
+                $dateEndIsWeekend = in_array(date('w', strtotime($arrEventsSelection['DATE_ACTIVE_TO'])), [0, 6]);
+
+                if ($dateStartIsWeekend && $dateEndIsWeekend) {
+                    $dateWindow = '<span>'.$dateStartShort.'-'.$dateEndShort.'</span>';
+                } elseif (!$dateStartIsWeekend && !$dateEndIsWeekend) {
+                    $dateWindow = $dateStartShort.'-'.$dateEndShort;
+                } elseif (!$dateStartIsWeekend && $dateEndIsWeekend) {
+                    $dateWindow = $dateStartShort.'-<span>'.$dateEndShort.'</span>';
+                } else {
+                    $dateWindow = '<span>'.$dateStartShort.'</span>-'.$dateEndShort;
+                }
+
+                $arrEventsSelection['DATE_WINDOW'] = $dateWindow;
+            }
+
             $eventsSelection[$arrEventsSelection['DATE_ACTIVE_FROM']][] = $arrEventsSelection;
         }
-
-        echo '<pre>',print_r($eventsSelection),'</pre>';
         /***/
 
         $processedEvent = null;
@@ -116,16 +168,45 @@ class CAuroriCalendar extends CBitrixComponent {
                 $dayFullDate = $dayFullNum.'.'.$processedMonth['MONTH_FULL'].'.'.$processedMonth['YEAR_NUM'];
                 $weekday = date('w', strtotime($dayFullDate));
 
+                $subdued = 'N';
+                if ($processedEvent !== null) {
+                    $event = $processedEvent;
+                    $subdued = 'Y';
+
+                    if ($processedEvent['DAYS_LEFT'] - 1 == 0) {
+                        $processedEvent = null;
+                    } else {
+                        $processedEvent['DAYS_LEFT']--;
+                    }
+                } else {
+                    if (is_array($eventsSelection[$dayFullDate]) && !empty(is_array($eventsSelection[$dayFullDate]))) {
+                        $event = $eventsSelection[$dayFullDate][0];
+
+                        if ($event['DAYS_LENGTH'] > 1) {
+                            $daysLeft = $event['DAYS_LENGTH'] - 1;
+                            $processedEvent = $event;
+                            $processedEvent['DAYS_LEFT'] = $daysLeft;
+
+                            if (($processedMonth['LAST_DAY'] - $j) + 1 < $event['DAYS_LENGTH']) {
+                                $event['DAYS_LEFT_THIS_MONTH'] = (($processedMonth['LAST_DAY'] - $j) + 1);
+                            }
+                        }
+                    } else {
+                        $event = [];
+                    }
+                }
+
                 $dayArray = array(
                     'EMPTY' => 'N',
                     'DAY_NUM' => $j,
+                    'FULL_DATE' => $dayFullDate,
                     'IS_WEEKEND' => in_array($weekday, [0, 6]) ? 'Y' : 'N',
+                    'SUBDUED' => $subdued,
+                    'EVENT' => $event,
                 );
 
                 $processedMonth['DAYS'][] = $dayArray;
             }
-
-            /**/
 
             if ($initialMonth == 12) {
                 $initialMonth = 1;
@@ -137,7 +218,7 @@ class CAuroriCalendar extends CBitrixComponent {
             $arResult['MONTHS'][] = $processedMonth;
         }
 
-        echo '<pre>',print_r($arResult['MONTHS']),'</pre>';
+        //echo '<pre>',print_r($arResult['MONTHS']),'</pre>';
 
         $this->arResult = $arResult;
         $this->includeComponentTemplate();

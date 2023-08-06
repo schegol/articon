@@ -71,29 +71,29 @@ const mpOneSlider = new Swiper('.mp-one-slider .swiper', {
 
 
 
-const mpCalendarTopSlider = new Swiper('.mp-calendar-top-slider .swiper', {
-	// direction: 'horizontal',
-	slidesPerView: 1,
-	// loop: true,
-
-
-	navigation: {
-		nextEl: '.mp-calendar-top-slider .swiper-button-next',
-		prevEl: '.mp-calendar-top-slider .swiper-button-prev',
-	},
-
-	breakpoints: {
-		320: {
-			slidesPerView: 1,
-		},
-		480: {
-			slidesPerView: 1,
-		},
-		640: {
-			slidesPerView: 1,
-		}
-	}
-});
+// const mpCalendarTopSlider = new Swiper('.mp-calendar-top-slider .swiper', {
+// 	// direction: 'horizontal',
+// 	slidesPerView: 1,
+// 	// loop: true,
+//
+//
+// 	navigation: {
+// 		nextEl: '.mp-calendar-top-slider .swiper-button-next',
+// 		prevEl: '.mp-calendar-top-slider .swiper-button-prev',
+// 	},
+//
+// 	breakpoints: {
+// 		320: {
+// 			slidesPerView: 1,
+// 		},
+// 		480: {
+// 			slidesPerView: 1,
+// 		},
+// 		640: {
+// 			slidesPerView: 1,
+// 		}
+// 	}
+// });
 
 $('.modal-btn').fancybox({
 	btnTpl: {

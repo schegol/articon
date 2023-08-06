@@ -72,7 +72,8 @@ $APPLICATION->SetTitle('Articon — Главная страница');
     "",
     Array(
         "IBLOCK_ID" => "9",
-        "MONTHS" => "6",
+        "LECTURERS_IBLOCK_ID" => "10",
+        "MONTHS" => "3",
     )
 );?>
 
