@@ -115,7 +115,7 @@ $('.modal-btn').fancybox({
 			if (swiper !== null)
 				swiper.slideTo(index);
 		}
-	}
+	},
 });
 
 $('.modal-gallery-btn').fancybox({
@@ -129,8 +129,6 @@ $('.modal-gallery-btn').fancybox({
 
 document.querySelectorAll('.modal-photo-thumb-slider .swiper').forEach(function (elem) {
 	new Swiper(elem, {
-		// direction: 'horizontal',
-		// loop: true,
 		slidesPerView: 1,
 		pagination: {
 			el: elem.nextElementSibling,
@@ -153,16 +151,10 @@ document.querySelectorAll('.modal-photo-thumb-slider .swiper').forEach(function 
 	});
 });
 
-
-
 document.querySelectorAll('.modal-photo-slider .swiper').forEach(function (elem) {
-
 	new Swiper(elem, {
-		// direction: 'horizontal',
-		// loop: true,
 		autoHeight: true,
 		slidesPerView: 1,
-
 		navigation: {
 			nextEl: elem.nextElementSibling.nextElementSibling,
 			prevEl: elem.nextElementSibling,
@@ -194,6 +186,19 @@ document.querySelectorAll('.modal-photo-slider .swiper').forEach(function (elem)
 			320: {
 				slidesPerView: 1,
 			},
+		},
+		on: {
+			beforeSlideChangeStart: function(swiper) {
+				let YTVideo = $(swiper.$el).find('.swiper-slide-active .modal-photo-slide-video iframe');
+
+				if (YTVideo.length) {
+					let videoURL = YTVideo.prop('src')
+
+					videoURL = videoURL.replace('&autoplay=1', '');
+					YTVideo.prop('src','');
+					YTVideo.prop('src', videoURL);
+				}
+			}
 		}
 	});
 });
@@ -284,7 +289,8 @@ document.querySelectorAll('.lecturer-course-slider .swiper').forEach(function (e
 				slidesPerView: 2,
 			},
 			1200: {
-				slidesPerView: 3,
+				// slidesPerView: 3,
+				slidesPerView: 'auto',
 			}
 		}
 	});

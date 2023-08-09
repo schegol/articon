@@ -101,7 +101,7 @@ $this->setFrameMode(true);
                                                                         if ($i > 2) break;
 
                                                                         $smallPicArray = CFile::GetFileArray($img);
-                                                                        $smallPicData = CFile::ResizeImageGet($smallPicArray, array('width' => 840, 'height' => 840), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+                                                                        $smallPicData = CFile::ResizeImageGet($smallPicArray, array('width' => 213, 'height' => 213), BX_RESIZE_IMAGE_PROPORTIONAL, true);
                                                                         $smallPic = $smallPicData['src'];
                                                                     ?>
                                                                         <div class="course-top-info-photo-item-wrapper">
@@ -114,7 +114,7 @@ $this->setFrameMode(true);
                                                                     <?endforeach?>
                                                                     <?if (count($arResult['PROPERTIES']['GALLERY']['VALUE']) > 3):?>
                                                                         <div class="course-top-info-photo-item-wrapper">
-                                                                            <a class="course-top-info-photo-item modal-btn" href="#modal-photos--photo">
+                                                                            <a class="course-top-info-photo-item modal-btn" href="#modal-photos--photo" data-index="3">
                                                                                 <div class="course-top-info-photo-item-more">
                                                                                     <div class="course-top-info-photo-item-more__icon">
                                                                                         <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-news-photo-item-more-icon.svg" alt="<?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_ICON_ALT')?>">

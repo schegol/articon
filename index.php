@@ -149,79 +149,58 @@ $APPLICATION->SetTitle('Articon — Главная страница');
                                 )
                             );?>
                         </div>
-                        <div class="col-12 col-lg-4">
-                            <div class="mp-news-block-right">
-                                <div class="mp-news-photo-block">
-                                    <div class="mp-news-photo-title">
-                                        Фото
-                                    </div>
-                                    <div class="mp-news-photo-items-block">
-                                        <div class="mp-news-photo-items">
-                                            <div class="mp-news-photo-item-wrapper">
-                                                <a href="#modal-photos--photo" class="mp-news-photo-item modal-btn">
-                                                    <div class="mp-news-photo-item__img">
-                                                        <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/mainpage/mp-news-photo-item-img-1.png" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="mp-news-photo-item-wrapper">
-                                                <a href="#modal-photos--photo" class="mp-news-photo-item modal-btn">
-                                                    <div class="mp-news-photo-item__img">
-                                                        <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/mainpage/mp-news-photo-item-img-2.png" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="mp-news-photo-item-wrapper">
-                                                <a href="#modal-photos--photo" class="mp-news-photo-item modal-btn">
-                                                    <div class="mp-news-photo-item__img">
-                                                        <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/mainpage/mp-news-photo-item-img-3.png" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="mp-news-photo-item-wrapper">
-                                                <a href="#modal-photos--photo" class="mp-news-photo-item modal-btn">
-                                                    <div class="mp-news-photo-item-more">
-                                                        <div class="mp-news-photo-item-more__icon">
-                                                            <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-news-photo-item-more-icon.svg" alt="">
-                                                        </div>
-                                                        <div class="mp-news-photo-item-more__title">
-                                                            48 Фото
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mp-news-video-block">
-                                    <div class="mp-news-video-top">
-                                        <div class="mp-news-video-top-title-block">
-                                            <div class="mp-news-video-top-title">
-                                                Видео отчеты
-                                            </div>
-                                        </div>
-                                        <div class="mp-news-video-top-more-link-block">
-                                            <a href="#" class="more-link">Подробнее</a>
-                                        </div>
-                                    </div>
-                                    <div class="mp-news-video-wrapper">
-                                        <div class="mp-news-video-back">
-                                            <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-news-video-back.svg" alt="">
-                                        </div>
-                                        <a href="https://www.youtube.com/watch?v=krqeDxgb9Ok" data-fancybox class="mp-news-video">
-                                            <div class="video">
-                                                <div class="video-preview">
-                                                    <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/mainpage/mp-news-video-img.png" alt="">
-                                                </div>
-                                                <div class="video-play-btn">
-                                                    <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/play-btn.svg" alt="">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:news.detail",
+                            "index_media",
+                            Array(
+                                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                                "ADD_ELEMENT_CHAIN" => "N",
+                                "ADD_SECTIONS_CHAIN" => "N",
+                                "AJAX_MODE" => "N",
+                                "AJAX_OPTION_ADDITIONAL" => "",
+                                "AJAX_OPTION_HISTORY" => "N",
+                                "AJAX_OPTION_JUMP" => "N",
+                                "AJAX_OPTION_STYLE" => "Y",
+                                "BROWSER_TITLE" => "-",
+                                "CACHE_GROUPS" => "Y",
+                                "CACHE_TIME" => "36000000",
+                                "CACHE_TYPE" => "A",
+                                "CHECK_DATES" => "Y",
+                                "DETAIL_URL" => "",
+                                "DISPLAY_BOTTOM_PAGER" => "Y",
+                                "DISPLAY_DATE" => "Y",
+                                "DISPLAY_NAME" => "Y",
+                                "DISPLAY_PICTURE" => "Y",
+                                "DISPLAY_PREVIEW_TEXT" => "Y",
+                                "DISPLAY_TOP_PAGER" => "N",
+                                "ELEMENT_CODE" => "",
+                                "ELEMENT_ID" => "93",
+                                "FIELD_CODE" => array("PREVIEW_PICTURE", ""),
+                                "IBLOCK_ID" => "17",
+                                "IBLOCK_TYPE" => "content",
+                                "IBLOCK_URL" => "",
+                                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                                "MESSAGE_404" => "",
+                                "META_DESCRIPTION" => "-",
+                                "META_KEYWORDS" => "-",
+                                "PAGER_BASE_LINK_ENABLE" => "N",
+                                "PAGER_SHOW_ALL" => "N",
+                                "PAGER_TEMPLATE" => ".default",
+                                "PAGER_TITLE" => "Страница",
+                                "PROPERTY_CODE" => array("*", "",),
+                                "SET_BROWSER_TITLE" => "N",
+                                "SET_CANONICAL_URL" => "N",
+                                "SET_LAST_MODIFIED" => "N",
+                                "SET_META_DESCRIPTION" => "N",
+                                "SET_META_KEYWORDS" => "N",
+                                "SET_STATUS_404" => "N",
+                                "SET_TITLE" => "N",
+                                "SHOW_404" => "N",
+                                "STRICT_SECTION_CHECK" => "N",
+                                "USE_PERMISSIONS" => "N",
+                                "USE_SHARE" => "N"
+                            )
+                        );?>
                     </div>
                 </div>
             </div>

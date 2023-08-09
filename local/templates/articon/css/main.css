@@ -3450,6 +3450,14 @@ button {
 	margin-top: 20px;
 }
 
+.lecturer-course-slider .swiper-wrapper{
+	/* justify-content: center; */
+}
+.lecturer-course-slide{
+	width: auto;
+	height: auto;
+	max-width: 400px;
+}
 .lecturer-course-slider .swiper-button-next,
 .lecturer-course-slider .swiper-button-prev {
 	width: 60px;
@@ -3555,7 +3563,9 @@ button {
 	height: 100%;
 	padding: 24px 20px;
 	border-radius: 4px 0 4px 4px;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	text-decoration: none;
 }
 

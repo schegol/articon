@@ -121,9 +121,16 @@ $this->setFrameMode(true);
                             <div class="lecturer-course-slider">
                                 <div class="swiper">
                                     <div class="swiper-wrapper">
-                                        <?foreach ($arItem['COURSES'] as $arCourse):?>
+                                        <?foreach ($arItem['COURSES'] as $i => $arCourse):
+                                            if ($i % 3 == 0)
+                                                $color = 'green';
+                                            elseif ($i % 3 == 1)
+                                                $color = 'purple';
+                                            else
+                                                $color = 'black';
+                                        ?>
                                             <div class="lecturer-course-slide swiper-slide">
-                                                <a class="lecturer-course-slide-item lecturer-course-slide-item--<?=$arCourse['COLOR']?>" href="<?=$arCourse['LINK']?>">
+                                                <a class="lecturer-course-slide-item lecturer-course-slide-item--<?=$color?>" href="<?=$arCourse['DETAIL_PAGE_URL']?>">
                                                     <div class="lecturer-course-slide-item-title"><?=$arCourse['NAME']?></div>
                                                 </a>
                                             </div>

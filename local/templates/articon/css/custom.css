@@ -175,6 +175,10 @@ a.video {
     color: #EB5757;
 }
 
+.modal-photo-slide-video {
+    aspect-ratio: 16 / 9;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {
