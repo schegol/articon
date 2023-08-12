@@ -179,6 +179,28 @@ a.video {
     aspect-ratio: 16 / 9;
 }
 
+.mp-one-slide-item--video {
+    padding-left: 0;
+}
+
+.mp-one-slide-item__title--white {
+    color: #fff;
+}
+
+.mp-one-slide-item__video {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.mainscreen__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {
