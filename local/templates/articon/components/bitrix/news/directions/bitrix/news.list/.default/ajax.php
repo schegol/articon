@@ -11,13 +11,13 @@ if (CModule::IncludeModule('iblock')) {
     $context = Application::getInstance()->getContext();
     $request = $context->getRequest();
 
-    global $arrFilterCourses;
+    global $arrFilterDirections;
 
     $iBlock = $request['iblock'];
     $section = $request['section'];
 
     if ((int)$section > 0) {
-        $arrFilterCourses['SECTION_ID'] = $section;
+        $arrFilterDirections['SECTION_ID'] = $section;
     }
 
     $APPLICATION->IncludeComponent(
@@ -27,9 +27,9 @@ if (CModule::IncludeModule('iblock')) {
             "IBLOCK_TYPE" => "content",
             "IBLOCK_ID" => $iBlock,
             "NEWS_COUNT" => "6",
-            "SORT_BY1" => "ACTIVE_FROM",
+            "SORT_BY1" => "SORT",
             "SORT_ORDER1" => "ASC",
-            "SORT_BY2" => "SORT",
+            "SORT_BY2" => "NAME",
             "SORT_ORDER2" => "ASC",
             "FIELD_CODE" => array(
                 "NAME",
@@ -38,9 +38,9 @@ if (CModule::IncludeModule('iblock')) {
                 "ACTIVE_TO",
             ),
             "PROPERTY_CODE" => array("*"),
-            "DETAIL_URL" => "/courses/#ELEMENT_CODE#/",
-            "SECTION_URL" => "/courses/",
-            "IBLOCK_URL" => "/courses/",
+            "DETAIL_URL" => "/directions/#ELEMENT_CODE#/",
+            "SECTION_URL" => "/directions/",
+            "IBLOCK_URL" => "/directions/",
             "DISPLAY_PANEL" => "",
             "SET_TITLE" => "1",
             "SET_LAST_MODIFIED" => "",
@@ -74,7 +74,7 @@ if (CModule::IncludeModule('iblock')) {
             "GROUP_PERMISSIONS" => array(
                 "0" => "1",
             ),
-            "FILTER_NAME" => "arrFilterCourses",
+            "FILTER_NAME" => "arrFilterDirections",
             "HIDE_LINK_WHEN_NO_DETAIL" => "",
             "CHECK_DATES" => "1",
             "BANNER_IMG" => "",

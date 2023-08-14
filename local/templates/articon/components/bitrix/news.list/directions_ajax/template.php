@@ -12,7 +12,9 @@ $this->setFrameMode(true);?>
                                 <div class="col-12 col-lg-6">
                                     <div class="course-item course-item--<?=$arItem['PROPERTIES']['BG_COLOR']['VALUE_XML_ID']?>">
                                         <div class="course-item-inner">
-                                            <div class="course-item-type"><?=$arItem['PROPERTIES']['BG_COLOR']['VALUE']?></div>
+                                            <div class="course-item-type">
+                                                <?=GetMessage('NEWS_LIST_DIRECTIONS_AJAX_TYPE_REPLACEMENT')?>
+                                            </div>
                                             <div class="course-item-left">
                                                 <div class="course-item-speaker-img">
                                                     <img class="image" src="<?=$arItem['LECTURER_PHOTO']?>" alt="<?=$arItem['LECTURER_NAME']?>">
