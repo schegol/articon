@@ -1,6 +1,6 @@
 <?
 $MESS['CLASS_AURORI_CALENDAR_NO_IBLOCK_SPECIFIED'] = 'Выберите инфоблок-источник информации';
-$MESS['CLASS_AURORI_CALENDAR_NO_LECTURERS_IBLOCK_SPECIFIED'] = 'Укажите инфоблок-источник информации о лекторах';
+$MESS['CLASS_AURORI_CALENDAR_NO_DIRECTIONS_IBLOCK_SPECIFIED'] = 'Укажите инфоблок-источник информации о направлениях';
 $MESS['CLASS_AURORI_CALENDAR_MONTHS_WRONG_TYPE'] = 'Неверное значение параметра «месяцы на вывод». Введите целое положительное число';
 $MESS['CLASS_AURORI_CALENDAR_MONTH_NAME_1'] = 'Январь';
 $MESS['CLASS_AURORI_CALENDAR_MONTH_NAME_2'] = 'Февраль';

@@ -1,10 +1,10 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Курсы");
+$APPLICATION->SetTitle("Направления");
 ?>
 
 <?$APPLICATION->IncludeComponent(
     "bitrix:news",
-    "courses",
+    "directions",
     Array(
         "ADD_ELEMENT_CHAIN" => "Y",
         "ADD_SECTIONS_CHAIN" => "N",
@@ -22,7 +22,7 @@ $APPLICATION->SetTitle("Курсы");
         "DETAIL_ACTIVE_DATE_FORMAT" => "j F",
         "DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
         "DETAIL_DISPLAY_TOP_PAGER" => "N",
-        "DETAIL_FIELD_CODE" => array("NAME", "ACTIVE_FROM", "ACTIVE_TO", ""),
+        "DETAIL_FIELD_CODE" => array("NAME", "DETAIL_TEXT", ""),
         "DETAIL_PAGER_SHOW_ALL" => "Y",
         "DETAIL_PAGER_TEMPLATE" => "",
         "DETAIL_PAGER_TITLE" => "Страница",
@@ -35,11 +35,11 @@ $APPLICATION->SetTitle("Курсы");
         "DISPLAY_PREVIEW_TEXT" => "Y",
         "DISPLAY_TOP_PAGER" => "N",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "18",
+        "IBLOCK_ID" => "9",
         "IBLOCK_TYPE" => "content",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "LIST_ACTIVE_DATE_FORMAT" => "j F",
-        "LIST_FIELD_CODE" => array("NAME", "ACTIVE_FROM", "ACTIVE_TO", ""),
+        "LIST_FIELD_CODE" => array("NAME", "PREVIEW_TEXT", ""),
         "LIST_PROPERTY_CODE" => array("*", ""),
         "MESSAGE_404" => "",
         "META_DESCRIPTION" => "-",
@@ -53,10 +53,10 @@ $APPLICATION->SetTitle("Курсы");
         "PAGER_TEMPLATE" => "courses",
         "PAGER_TITLE" => "Новости",
         "PREVIEW_TRUNCATE_LEN" => "",
-        "SEF_FOLDER" => "/courses/",
+        "SEF_FOLDER" => "/directions/",
         "SEF_MODE" => "Y",
         "SEF_URL_TEMPLATES" => Array(
-            "detail" => "#ELEMENT_ID#/",
+            "detail" => "#ELEMENT_CODE#/",
             "news" => "",
             "section" => ""
         ),
@@ -64,8 +64,8 @@ $APPLICATION->SetTitle("Курсы");
         "SET_STATUS_404" => "N",
         "SET_TITLE" => "Y",
         "SHOW_404" => "N",
-        "SORT_BY1" => "ACTIVE_FROM",
-        "SORT_BY2" => "SORT",
+        "SORT_BY1" => "SORT",
+        "SORT_BY2" => "NAME",
         "SORT_ORDER1" => "ASC",
         "SORT_ORDER2" => "ASC",
         "STRICT_SECTION_CHECK" => "N",

@@ -24,9 +24,9 @@ $arComponentParameters = array(
             'MULTIPLE' =>  'N',
 
         ),
-        'LECTURERS_IBLOCK_ID' => array(
+        'DIRECTIONS_IBLOCK_ID' => array(
             'PARENT' => 'BASE',
-            'NAME' => GetMessage('PARAMETERS_AURORI_CALENDAR_LECTURERS_IBLOCK_ID'),
+            'NAME' => GetMessage('PARAMETERS_AURORI_CALENDAR_DIRECTIONS_IBLOCK_ID'),
             'TYPE' => 'LIST',
             'VALUES' =>  $paramIBlocks,
             'REFRESH' =>  'Y',

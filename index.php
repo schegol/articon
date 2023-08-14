@@ -71,8 +71,8 @@ $APPLICATION->SetTitle('Articon — Главная страница');
     "aurori:calendar",
     "",
     Array(
-        "IBLOCK_ID" => "9",
-        "LECTURERS_IBLOCK_ID" => "10",
+        "IBLOCK_ID" => "18",
+        "DIRECTIONS_IBLOCK_ID" => "9",
         "MONTHS" => "3",
     )
 );?>

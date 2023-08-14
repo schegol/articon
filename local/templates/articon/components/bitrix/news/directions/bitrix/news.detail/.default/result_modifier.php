@@ -1,28 +1,7 @@
 <?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
-$srcDirectionIBlockId = $arResult['PROPERTIES']['DIRECTION']['LINK_IBLOCK_ID'];
-$srcDirectionId = $arResult['PROPERTIES']['DIRECTION']['VALUE'];
-
-$obSrc = CIBlockElement::GetList(
-    array('ID' => 'ASC'),
-    array('IBLOCK_ID' => $srcDirectionIBlockId, 'ID' => $srcDirectionId),
-    false,
-    false,
-    array('*', 'PROPERTY_*')
-);
-
-while ($resSrc = $obSrc->GetNextElement()) {
-    $fields = $resSrc->getFields();
-    $props = $resSrc->getProperties();
-
-    $arResult['DIRECTION_DATA']['FIELDS'] = $fields;
-    $arResult['DIRECTION_DATA']['PROPS'] = $props;
-}
-
-/***/
-
-$lecturersIBlockId = $arResult['DIRECTION_DATA']['PROPS']['LECTURER']['LINK_IBLOCK_ID'];
-$lecturerId = $arResult['DIRECTION_DATA']['PROPS']['LECTURER']['VALUE'];
+$lecturersIBlockId = $arResult['PROPERTIES']['LECTURER']['LINK_IBLOCK_ID'];
+$lecturerId = $arResult['PROPERTIES']['LECTURER']['VALUE'];
 $lecturerRegalia = '';
 
 $obj = CIBlockElement::GetList(
@@ -48,10 +27,10 @@ $arResult['LECTURER_REGALIA'] = $lecturerRegalia;
 
 /***/
 
-if (is_array($arResult['DIRECTION_DATA']['PROPS']['REVIEWS']['VALUE']) && !empty($arResult['DIRECTION_DATA']['PROPS']['REVIEWS']['VALUE'])) {
+if (is_array($arResult['PROPERTIES']['REVIEWS']['VALUE']) && !empty($arResult['PROPERTIES']['REVIEWS']['VALUE'])) {
     $reviews = $colors = [];
-    $reviewsIBlockId = $arResult['DIRECTION_DATA']['PROPS']['REVIEWS']['LINK_IBLOCK_ID'];
-    $ids = $arResult['DIRECTION_DATA']['PROPS']['REVIEWS']['VALUE'];
+    $reviewsIBlockId = $arResult['PROPERTIES']['REVIEWS']['LINK_IBLOCK_ID'];
+    $ids = $arResult['PROPERTIES']['REVIEWS']['VALUE'];
 
     $colorsObj = CIBlockPropertyEnum::GetList(
         array('SORT' => 'ASC'),

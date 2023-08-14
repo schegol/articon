@@ -14,7 +14,7 @@ $this->setFrameMode(true);
                     </div>
                     <div class="course-block">
                         <div class="course-top-block">
-                            <div class="course-top course-top--<?=$arResult['DIRECTION_DATA']['PROPS']['BG_COLOR']['VALUE_XML_ID']?>">
+                            <div class="course-top course-top--<?=$arResult['PROPERTIES']['BG_COLOR']['VALUE_XML_ID']?>">
                                 <div class="row">
                                     <div class="col-12 col-xl-3">
                                         <div class="course-top-left">
@@ -41,13 +41,13 @@ $this->setFrameMode(true);
                                                 <div class="course-top-info">
                                                     <div class="course-top-info-left">
                                                         <div class="course-top-info-type">
-                                                            <?=$arResult['DIRECTION_DATA']['PROPS']['BG_COLOR']['VALUE']?>
+                                                            <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_TYPE_REPLACEMENT')?>
                                                         </div>
                                                         <div class="course-top-info-params-block">
                                                             <div class="course-top-info-params">
                                                                 <div class="course-top-info-param">
                                                                     <div class="course-top-info-param__title">
-                                                                        <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_START_DATE_HEADING')?>
+                                                                        <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_START_DATE_HEADING')?>
                                                                     </div>
                                                                     <div class="course-top-info-param__value">
                                                                         <?=FormatDate($arParams['ACTIVE_DATE_FORMAT'], MakeTimeStamp($arResult['ACTIVE_FROM']))?>
@@ -55,17 +55,17 @@ $this->setFrameMode(true);
                                                                 </div>
                                                                 <div class="course-top-info-param">
                                                                     <div class="course-top-info-param__title">
-                                                                        <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_DIFFICULTY_LEVEL_HEADING')?>
+                                                                        <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_DIFFICULTY_LEVEL_HEADING')?>
                                                                     </div>
                                                                     <div class="course-top-info-param__value">
-                                                                        <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_DIFFICULTY_LEVEL_'.$arResult['DIRECTION_DATA']['PROPS']['DIFFICULTY_LEVEL']['VALUE_XML_ID'])?>
+                                                                        <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_DIFFICULTY_LEVEL_'.$arResult['PROPERTIES']['DIFFICULTY_LEVEL']['VALUE_XML_ID'])?>
                                                                     </div>
                                                                 </div>
 
-                                                                <?if (strlen($arResult['DIRECTION_DATA']['PROPS']['LENGTH']['VALUE'])):?>
+                                                                <?if (strlen($arResult['PROPERTIES']['LENGTH']['VALUE'])):?>
                                                                     <div class="course-top-info-param">
-                                                                        <div class="course-top-info-param__title"><?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_LENGTH_HEADING')?></div>
-                                                                        <div class="course-top-info-param__value"><?=$arResult['DIRECTION_DATA']['PROPS']['LENGTH']['VALUE']?></div>
+                                                                        <div class="course-top-info-param__title"><?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_LENGTH_HEADING')?></div>
+                                                                        <div class="course-top-info-param__value"><?=$arResult['PROPERTIES']['LENGTH']['VALUE']?></div>
                                                                     </div>
                                                                 <?endif?>
                                                             </div>
@@ -74,16 +74,16 @@ $this->setFrameMode(true);
                                                             <?=$arResult['NAME']?>
                                                         </div>
 
-                                                        <?if (strlen($arResult['DIRECTION_DATA']['PROPS']['INTRO']['VALUE'])):?>
+                                                        <?if (strlen($arResult['PROPERTIES']['INTRO']['VALUE'])):?>
                                                             <div class="course-top-info-descr">
-                                                                <?=$arResult['DIRECTION_DATA']['PROPS']['INTRO']['VALUE']?>
+                                                                <?=$arResult['PROPERTIES']['INTRO']['VALUE']?>
                                                             </div>
                                                         <?endif?>
 
-                                                        <?if (is_array($arResult['DIRECTION_DATA']['PROPS']['FEATURES']['VALUE']) && !empty($arResult['DIRECTION_DATA']['PROPS']['FEATURES']['VALUE'])):?>
+                                                        <?if (is_array($arResult['PROPERTIES']['FEATURES']['VALUE']) && !empty($arResult['PROPERTIES']['FEATURES']['VALUE'])):?>
                                                             <div class="course-top-info-alt-params-block">
                                                                 <div class="course-top-info-alt-params">
-                                                                    <?foreach ($arResult['DIRECTION_DATA']['PROPS']['FEATURES']['VALUE'] as $feature):?>
+                                                                    <?foreach ($arResult['PROPERTIES']['FEATURES']['VALUE'] as $feature):?>
                                                                         <div class="course-top-info-alt-param">
                                                                             <?=html_entity_decode($feature)?>
                                                                         </div>
@@ -93,11 +93,11 @@ $this->setFrameMode(true);
                                                         <?endif?>
                                                     </div>
 
-                                                    <?if (is_array($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE']) && !empty($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE'])):?>
+                                                    <?if (is_array($arResult['PROPERTIES']['GALLERY']['VALUE']) && !empty($arResult['PROPERTIES']['GALLERY']['VALUE'])):?>
                                                         <div class="course-top-info-right">
                                                             <div class="course-top-info-photo-items-block">
                                                                 <div class="course-top-info-photo-items">
-                                                                    <?foreach ($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE'] as $i => $img):
+                                                                    <?foreach ($arResult['PROPERTIES']['GALLERY']['VALUE'] as $i => $img):
                                                                         if ($i > 2) break;
 
                                                                         $smallPicArray = CFile::GetFileArray($img);
@@ -107,20 +107,20 @@ $this->setFrameMode(true);
                                                                         <div class="course-top-info-photo-item-wrapper">
                                                                             <a class="course-top-info-photo-item modal-btn" href="#modal-photos--photo" data-index="<?=$i?>">
                                                                                 <div class="course-top-info-photo-item__img">
-                                                                                    <img class="image" src="<?=$smallPic?>" alt="<?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_PREVIEW_ALT').($i + 1)?>">
+                                                                                    <img class="image" src="<?=$smallPic?>" alt="<?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_GALLERY_PREVIEW_ALT').($i + 1)?>">
                                                                                 </div>
                                                                             </a>
                                                                         </div>
                                                                     <?endforeach?>
-                                                                    <?if (count($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE']) > 3):?>
+                                                                    <?if (count($arResult['PROPERTIES']['GALLERY']['VALUE']) > 3):?>
                                                                         <div class="course-top-info-photo-item-wrapper">
                                                                             <a class="course-top-info-photo-item modal-btn" href="#modal-photos--photo" data-index="3">
                                                                                 <div class="course-top-info-photo-item-more">
                                                                                     <div class="course-top-info-photo-item-more__icon">
-                                                                                        <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-news-photo-item-more-icon.svg" alt="<?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_ICON_ALT')?>">
+                                                                                        <img class="image" src="<?=SITE_TEMPLATE_PATH?>/images/svg/mp-news-photo-item-more-icon.svg" alt="<?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_GALLERY_ICON_ALT')?>">
                                                                                     </div>
                                                                                     <div class="course-top-info-photo-item-more__title">
-                                                                                        <?=(count($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE']) - 3).GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_COUNTER')?>
+                                                                                        <?=(count($arResult['PROPERTIES']['GALLERY']['VALUE']) - 3).GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_GALLERY_COUNTER')?>
                                                                                     </div>
                                                                                 </div>
                                                                             </a>
@@ -135,13 +135,13 @@ $this->setFrameMode(true);
                                                                 <div class="fb-modal-inner">
                                                                     <div class="modal-photo-block">
                                                                         <div class="modal-photo-title-block">
-                                                                            <div class="h2 modal-photo-title"><?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_MODAL_HEADING')?></div>
+                                                                            <div class="h2 modal-photo-title"><?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_GALLERY_MODAL_HEADING')?></div>
                                                                         </div>
                                                                         <div class="modal-photo-slider-block">
                                                                             <div class="modal-photo-slider modal-photo-slider--course swiper-slider">
                                                                                 <div class="swiper">
                                                                                     <div class="swiper-wrapper">
-                                                                                        <?foreach ($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE'] as $i => $img):
+                                                                                        <?foreach ($arResult['PROPERTIES']['GALLERY']['VALUE'] as $i => $img):
                                                                                             $smallPicArray = CFile::GetFileArray($img);
                                                                                             $smallPicData = CFile::ResizeImageGet($smallPicArray, array('width' => 1320, 'height' => 1320), BX_RESIZE_IMAGE_PROPORTIONAL, true);
                                                                                             $smallPic = $smallPicData['src'];
@@ -149,7 +149,7 @@ $this->setFrameMode(true);
                                                                                             <div class="modal-photo-slide swiper-slide">
                                                                                                 <div class="modal-photo-slide-item">
                                                                                                     <div class="modal-photo-slide-img">
-                                                                                                        <img class="image" src="<?=$smallPic?>" alt="<?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_MODAL_IMG_ALT').($i + 1)?>">
+                                                                                                        <img class="image" src="<?=$smallPic?>" alt="<?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_GALLERY_MODAL_IMG_ALT').($i + 1)?>">
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -166,7 +166,7 @@ $this->setFrameMode(true);
                                                                             <div class="modal-photo-thumb-slider modal-photo-thumb-slider--course swiper-slider">
                                                                                 <div class="swiper">
                                                                                     <div class="swiper-wrapper">
-                                                                                        <?foreach ($arResult['DIRECTION_DATA']['PROPS']['GALLERY']['VALUE'] as $i => $img):
+                                                                                        <?foreach ($arResult['PROPERTIES']['GALLERY']['VALUE'] as $i => $img):
                                                                                             $smallPicArray = CFile::GetFileArray($img);
                                                                                             $smallPicData = CFile::ResizeImageGet($smallPicArray, array('width' => 254, 'height' => 254), BX_RESIZE_IMAGE_PROPORTIONAL, true);
                                                                                             $smallPic = $smallPicData['src'];
@@ -174,7 +174,7 @@ $this->setFrameMode(true);
                                                                                             <div class="modal-photo-thumb-slide swiper-slide">
                                                                                                 <div class="modal-photo-thumb-slide-item">
                                                                                                     <div class="modal-photo-thumb-slide-item-img">
-                                                                                                        <img class="image" src="<?=$smallPic?>" alt="<?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_GALLERY_MODAL_IMG_ALT').($i + 1)?>">
+                                                                                                        <img class="image" src="<?=$smallPic?>" alt="<?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_GALLERY_MODAL_IMG_ALT').($i + 1)?>">
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -203,12 +203,12 @@ $this->setFrameMode(true);
                                 <div class="col-12 col-xl-3"></div>
                                 <div class="col-12 col-xl-9">
                                     <div class="course-info-blocks">
-                                        <?if (is_array($arResult['DIRECTION_DATA']['PROPS']['COURSE_FOR']['VALUE']) && !empty($arResult['DIRECTION_DATA']['PROPS']['COURSE_FOR']['VALUE'])):?>
+                                        <?if (is_array($arResult['PROPERTIES']['COURSE_FOR']['VALUE']) && !empty($arResult['PROPERTIES']['COURSE_FOR']['VALUE'])):?>
                                             <div class="course-info-block">
-                                                <h3 class="course-info-block-title"><?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_COURSE_FOR_HEADING')?></h3>
+                                                <h3 class="course-info-block-title"><?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_COURSE_FOR_HEADING')?></h3>
                                                 <div class="course-info-who-items-block">
                                                     <div class="course-info-items">
-                                                        <?foreach ($arResult['DIRECTION_DATA']['PROPS']['COURSE_FOR']['VALUE'] as $for):?>
+                                                        <?foreach ($arResult['PROPERTIES']['COURSE_FOR']['VALUE'] as $for):?>
                                                             <div class="course-info-item-wrapper">
                                                                 <div class="course-info-item">
                                                                     <?=$for?>
@@ -220,21 +220,21 @@ $this->setFrameMode(true);
                                             </div>
                                         <?endif?>
 
-                                        <?if (strlen($arResult['DIRECTION_DATA']['PROPS']['RESULT']['VALUE']['TEXT'])):?>
+                                        <?if (strlen($arResult['PROPERTIES']['RESULT']['VALUE']['TEXT'])):?>
                                             <div class="course-info-block course-info-block--result">
                                                 <h3 class="course-info-block-title">
-                                                    <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_RESULT_HEADING')?>
+                                                    <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_RESULT_HEADING')?>
                                                 </h3>
-                                                <?=$arResult['DIRECTION_DATA']['PROPS']['RESULT']['~VALUE']['TEXT']?>
+                                                <?=$arResult['PROPERTIES']['RESULT']['~VALUE']['TEXT']?>
                                             </div>
                                         <?endif?>
 
-                                        <?if (strlen($arResult['DIRECTION_DATA']['FIELDS']['DETAIL_TEXT'])):?>
+                                        <?if (strlen($arResult['DETAIL_TEXT'])):?>
                                             <div class="course-info-block">
                                                 <h3 class="course-info-block-title course-info-block-title--detail">
-                                                    <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_COURSE_PROGRAM_HEADING')?>
+                                                    <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_COURSE_PROGRAM_HEADING')?>
                                                 </h3>
-                                                <?=$arResult['DIRECTION_DATA']['FIELDS']['~DETAIL_TEXT']?>
+                                                <?=$arResult['~DETAIL_TEXT']?>
                                             </div>
                                         <?endif?>
                                     </div>
@@ -249,21 +249,21 @@ $this->setFrameMode(true);
 
     <?$APPLICATION->IncludeComponent(
         "pk:form.simple",
-        "course_form",
+        "direction_form",
         Array(
-            "IBLOCK_ID" => "16",
+            "IBLOCK_ID" => "19",
             "AJAX" => "Y",
             "LOAD_JS_CSS" => "Y",
             "SOGLASIE" => "Y",
             "SHOW_ERROR" => "Y",
-            "COURSE_ID" => $arResult["ID"],
+            "DIRECTION_ID" => $arResult["ID"],
         )
     );?>
 
-    <?if (is_array($arResult['DIRECTION_DATA']['PROPS']['SPEAKERS']['VALUE']) && !empty($arResult['DIRECTION_DATA']['PROPS']['SPEAKERS']['VALUE'])):?>
+    <?if (is_array($arResult['PROPERTIES']['SPEAKERS']['VALUE']) && !empty($arResult['PROPERTIES']['SPEAKERS']['VALUE'])):?>
         <?
         global $arrFilterSpeakers;
-        $arrFilterSpeakers['ID'] = $arResult['DIRECTION_DATA']['PROPS']['SPEAKERS']['VALUE'];
+        $arrFilterSpeakers['ID'] = $arResult['PROPERTIES']['SPEAKERS']['VALUE'];
 
         $APPLICATION->IncludeComponent(
             "bitrix:news.list",
@@ -291,7 +291,7 @@ $this->setFrameMode(true);
                 "FIELD_CODE" => array("NAME", ""),
                 "FILTER_NAME" => "arrFilterSpeakers",
                 "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                "IBLOCK_ID" => $arResult["DIRECTION_DATA"]["PROPS"]["SPEAKERS"]["LINK_IBLOCK_ID"],
+                "IBLOCK_ID" => $arResult["PROPERTIES"]["SPEAKERS"]["LINK_IBLOCK_ID"],
                 "IBLOCK_TYPE" => "contacts",
                 "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
                 "INCLUDE_SUBSECTIONS" => "Y",
@@ -339,7 +339,7 @@ $this->setFrameMode(true);
                     <div class="col-12">
                         <div class="about-photo-top-block">
                             <h2>
-                                <?=GetMessage('NEWS_COURSES_NEWS_DETAIL_DEFAULT_REVIEWS_HEADING')?>
+                                <?=GetMessage('NEWS_DIRECTIONS_NEWS_DETAIL_DEFAULT_REVIEWS_HEADING')?>
                             </h2>
                         </div>
 

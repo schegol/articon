@@ -10,9 +10,9 @@ $this->setFrameMode(true);?>
                         <div class="row">
                             <?foreach ($arResult['ITEMS'] as $arItem):?>
                                 <div class="col-12 col-lg-6">
-                                    <div class="course-item course-item--<?=$arItem['DIRECTION_DATA']['PROPS']['BG_COLOR']['VALUE_XML_ID']?>">
+                                    <div class="course-item course-item--<?=$arItem['PROPERTIES']['BG_COLOR']['VALUE_XML_ID']?>">
                                         <div class="course-item-inner">
-                                            <div class="course-item-type"><?=$arItem['DIRECTION_DATA']['PROPS']['BG_COLOR']['VALUE']?></div>
+                                            <div class="course-item-type"><?=$arItem['PROPERTIES']['BG_COLOR']['VALUE']?></div>
                                             <div class="course-item-left">
                                                 <div class="course-item-speaker-img">
                                                     <img class="image" src="<?=$arItem['LECTURER_PHOTO']?>" alt="<?=$arItem['LECTURER_NAME']?>">
@@ -28,28 +28,21 @@ $this->setFrameMode(true);?>
                                                     <?=$arItem['NAME']?>
                                                 </h3>
                                                 <div class="course-item-descr">
-                                                    <?=$arItem['DIRECTION_DATA']['FIELDS']['PREVIEW_TEXT']?>
+                                                    <?=$arItem['PREVIEW_TEXT']?>
                                                 </div>
                                                 <div class="course-item-params">
-                                                    <div class="course-item-param course-item-param--date">
-                                                        <?=FormatDate($arParams['ACTIVE_DATE_FORMAT'], MakeTimeStamp($arItem['ACTIVE_FROM']))?>
-                                                        <?if (strlen($arItem['ACTIVE_TO'])):?>
-                                                             —
-                                                            <?=FormatDate($arParams['ACTIVE_DATE_FORMAT'], MakeTimeStamp($arItem['ACTIVE_TO']))?>
-                                                        <?endif?>
-                                                    </div>
                                                     <div class="course-item-param course-item-param--level">
-                                                        <?=GetMessage('NEWS_LIST_COURSES_AJAX_DIFFICULTY_'.$arItem['DIRECTION_DATA']['PROPS']['DIFFICULTY_LEVEL']['VALUE_XML_ID'])?>
+                                                        <?=GetMessage('NEWS_LIST_DIRECTIONS_AJAX_DIFFICULTY_'.$arItem['PROPERTIES']['DIFFICULTY_LEVEL']['VALUE_XML_ID'])?>
                                                     </div>
                                                     <div class="course-item-param course-item-param--price">
-                                                        <?=$arItem['DIRECTION_DATA']['PROPS']['PRICE']['VALUE']?>
+                                                        <?=$arItem['PROPERTIES']['PRICE']['VALUE']?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="course-item-more-link-block">
                                             <a class="more-link" href="<?=$arItem['DETAIL_PAGE_URL']?>">
-                                                <?=GetMessage('NEWS_LIST_COURSES_AJAX_DETAIL_LINK')?>
+                                                <?=GetMessage('NEWS_LIST_DIRECTIONS_AJAX_DETAIL_LINK')?>
                                             </a>
                                         </div>
                                     </div>
