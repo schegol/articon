@@ -133,6 +133,11 @@ $this->setFrameMode(true);
                                                             <div class="mp-calendar-item__avatar">
                                                                 <img class="image" src="<?=$arDay['EVENT']['LECTURER_DATA']['AVATAR']?>" alt="<?=$arDay['EVENT']['LECTURER_DATA']['NAME']?>">
                                                             </div>
+                                                            <?if (strlen($arDay['EVENT']['PROPERTY_CITY_VALUE'])):?>
+                                                                <div class="mp-calendar-item__city mp-calendar-item__descr">
+                                                                    <?=$arDay['EVENT']['PROPERTY_CITY_VALUE']?>
+                                                                </div>
+                                                            <?endif?>
                                                             <div class="mp-calendar-item__descr">
                                                                 <?=$arDay['EVENT']['NAME']?>
                                                             </div>

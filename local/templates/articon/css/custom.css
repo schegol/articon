@@ -201,6 +201,12 @@ a.video {
     object-fit: cover;
 }
 
+.mp-calendar-item__city.mp-calendar-item__descr {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 12px;
+}
+
 @media (min-width: 768px) {
     h1.section-title,
     .section-title-block h1 {

@@ -60,6 +60,7 @@ class CAuroriCalendar extends CBitrixComponent {
                 'DATE_ACTIVE_FROM',
                 'DATE_ACTIVE_TO',
                 'PROPERTY_DIRECTION',
+                'PROPERTY_CITY',
             )
         );
         while ($arrEventsSelection = $objEventsSelection->GetNext()) {
