@@ -32,20 +32,20 @@ $arUrlRewrite=array (
     'PATH' => '/courses/index.php',
     'SORT' => 100,
   ),
-  2 => 
-  array (
-    'CONDITION' => '#^/news/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/news/index.php',
-    'SORT' => 100,
-  ),
   3 => 
   array (
     'CONDITION' => '#^/rent/#',
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/rent/index.php',
+    'SORT' => 100,
+  ),
+  8 => 
+  array (
+    'CONDITION' => '#^/news/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/news/index.php',
     'SORT' => 100,
   ),
 );
